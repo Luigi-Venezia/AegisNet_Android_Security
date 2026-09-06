@@ -1,4 +1,4 @@
-# AegisNet-Progetto-Programmazione-Dispositivi-Mobili
+# AegisNet - Android Security Application (Progetto d'Esame)
 
 Cos'è AegisNet:
 
