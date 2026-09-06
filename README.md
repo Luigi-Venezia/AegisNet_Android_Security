@@ -1,4 +1,7 @@
 # AegisNet-Progetto-Programmazione-Dispositivi-Mobili
+
+Cos'è AegisNet:
+
 AegisNet è un'applicazione per Android progettata per offrire un livello extra di protezione e consapevolezza nella tua vita digitale di tutti i giorni. Nata con l'obiettivo di rendere la sicurezza informatica accessibile a chiunque, l'app unisce praticità e strumenti di controllo, verifica e documentazione essenziali direttamente sul tuo smartphone.
 
 Cosa offre e cosa ti permette di fare:
