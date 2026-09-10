@@ -1,10 +1,10 @@
 # AegisNet - Android Security Application (Progetto d'Esame)
 
-Cos'è AegisNet:
+# Cos'è AegisNet:
 
 AegisNet è un'applicazione per Android progettata per offrire un livello extra di protezione e consapevolezza nella tua vita digitale di tutti i giorni. Nata con l'obiettivo di rendere la sicurezza informatica accessibile a chiunque, l'app unisce praticità e strumenti di controllo, verifica e documentazione essenziali direttamente sul tuo smartphone.
 
-Cosa offre e cosa ti permette di fare:
+# Cosa offre e cosa ti permette di fare:
 
 Verifica e protezione delle password: Dispone di una sezione dedicata pensata per aiutarti a valutare la robustezza e l'affidabilità delle tue credenziali per gestire la sicurezza dei tuoi account personali.
   
