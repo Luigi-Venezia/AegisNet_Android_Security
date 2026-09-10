@@ -1,6 +1,6 @@
 # AegisNet - Android Security Application (Progetto d'Esame)
 
-#Studenti Realizzatori del progetto
+##Studenti Realizzatori del progetto
 
 R334000043 - Luigi Venezia
 R334000035 - Michele Acierno
