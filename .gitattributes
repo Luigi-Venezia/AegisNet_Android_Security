@@ -1,0 +1,3 @@
+# Forza tutti i file .html dentro la cartella 'templates' a essere conteggiati come HTML
+templates/*.kt linguist-language=KOTLIN
+
