@@ -1,6 +1,6 @@
 #Automatic line ending handling for all files
 
-* text=auto
+#* text=auto
 
 # Auto-detect linguist-language
 
