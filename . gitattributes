@@ -1,0 +1,5 @@
+# Kotlin
+*.kt linguist-language=Kotlin linguist-detectable=true
+
+# XML
+*.xml linguist-language=XML linguist-detectable=true
