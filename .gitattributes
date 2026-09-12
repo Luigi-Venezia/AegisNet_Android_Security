@@ -1,3 +1,9 @@
+#Automatic line ending handling for all files
+
+* text=auto
+
+# Auto-detect linguist-language
+
 # Kotlin
 *.kt linguist-language=Kotlin linguist-detectable=true
 
