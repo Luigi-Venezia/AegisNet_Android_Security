@@ -1,0 +1,7 @@
+com.example.aegisnet.app-pngs-0 C:\Users\venez\AndroidStudioProjects\AegisNet\app\build\generated\res\pngs\debug
+com.example.aegisnet.app-updated_navigation_xml-1 C:\Users\venez\AndroidStudioProjects\AegisNet\app\build\generated\updated_navigation_xml\debug
+com.example.aegisnet.app-packageDebugResources-2 C:\Users\venez\AndroidStudioProjects\AegisNet\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.aegisnet.app-packageDebugResources-3 C:\Users\venez\AndroidStudioProjects\AegisNet\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.aegisnet.app-debug-4 C:\Users\venez\AndroidStudioProjects\AegisNet\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.aegisnet.app-debug-5 C:\Users\venez\AndroidStudioProjects\AegisNet\app\src\debug\res
+com.example.aegisnet.app-main-6 C:\Users\venez\AndroidStudioProjects\AegisNet\app\src\main\res

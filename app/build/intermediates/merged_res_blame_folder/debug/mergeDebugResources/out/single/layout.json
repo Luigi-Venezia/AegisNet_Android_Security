@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.aegisnet.app-mergeDebugResources-33:/layout/main_activity_layout.xml",
+        "source": "com.example.aegisnet.app-main-36:/layout/main_activity_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-mergeDebugResources-33:\\layout\\main_activity_layout.xml",
+        "source": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-main-36:\\layout\\main_activity_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-mergeDebugResources-33:\\layout\\url_security_activity_layout.xml",
+        "source": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-main-36:\\layout\\url_security_activity_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-mergeDebugResources-33:\\layout\\aegisnet_widget_layout.xml",
+        "source": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-main-36:\\layout\\aegisnet_widget_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-mergeDebugResources-33:\\layout\\security_guide_activity_layout.xml",
+        "source": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-main-36:\\layout\\security_guide_activity_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-mergeDebugResources-33:\\layout\\password_security_activity_layout.xml",
+        "source": "C:\\Users\\venez\\.gradle\\daemon\\9.3.1\\com.example.aegisnet.app-main-36:\\layout\\password_security_activity_layout.xml"
+    }
+]

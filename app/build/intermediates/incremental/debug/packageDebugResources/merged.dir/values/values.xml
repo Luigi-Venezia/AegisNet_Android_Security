@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aegis_black">#050505</color>
+    <color name="aegis_black_surface">#0D0D0D</color>
+    <color name="aegis_dark_gray">#303030</color>
+    <color name="aegis_dark_surface">#151515</color>
+    <color name="aegis_gray">#B0B0B0</color>
+    <color name="aegis_green">#00E676</color>
+    <color name="aegis_green_dark">#00A152</color>
+    <color name="aegis_green_light">#69F0AE</color>
+    <color name="aegis_white">#FFFFFF</color>
+    <string name="app_name">AegisNet</string>
+    <string name="btn_analizza_password_text">Analizza Password</string>
+    <string name="btn_analizza_url">Analizza URL</string>
+    <string name="btn_controllo_online_name">Esegui il controllo di sicurezza Online</string>
+    <string name="btn_ritorna_DashBoard">Ritorna alla DashBoard</string>
+    <string name="controlli_superati_text">Controlli superati: </string>
+    <string name="controllo_online_risultati">
+    Controllo di sicurezza HTTP remoto\n
+    Grado: %1$s\n
+    Punteggio: %2$d\n
+    Controlli passati: %3$d/%4$d\n
+    Stato HTTP: %5$d</string>
+    <string name="descrizione_app_testo">Proteggi la tua esperienza digitale con controlli pratici e semplici</string>
+    <string name="esegui_scan_sicurezza_text">Esegui lo scan della Sicurezza</string>
+    <string name="guida_sicurezza">Guida per la Sicurezza</string>
+    <string name="guida_sicurezza_text">Guida alla Sicurezza</string>
+    <string name="https_trust_note">
+        HTTPS dimostra che la connessione è cifrata non che il sito è sicuro, anche i siti di phishing possono usare
+        HTTPS come protocollo di comunicazione.</string>
+    <string name="online_check_loading">Contattando il servizio di sicurezza remoto</string>
+    <string name="online_check_note">
+    Questo controllo secondario utilizza Mozilla HTTP Observatory.
+        Valuta la configurazione della sicurezza HTTP;
+        non dimostra che un sito web sia innocuo o affidabile.</string>
+    <string name="password_checker">Controllo Sicurezza Password</string>
+    <string name="password_checker_descrizione">Valuta la robustezza delle Password tramite semplici controlli di sicurezza.
+    </string>
+    <string name="password_checker_titolo">Analizza Sicurezza Password</string>
+    <string name="password_controlli_sicurezza_text">Controlli di Sicurezza</string>
+    <string name="password_input_sugg">Inserisci una Password da analizzare</string>
+    <string name="password_input_text">Password</string>
+    <string name="password_punteggio">%1$d/100</string>
+    <string name="password_punteggio_text">Punteggio</string>
+    <string name="password_vuota_error">Inserisci una Password prima di iniziare l\'analisi.</string>
+    <string name="password_warnings">
+        Warnings: %1$d
+    </string>
+    <string name="punteggio_sicurezza_text">Punteggio di Sicurezza</string>
+    <string name="scan_completo">Scan della Sicurezza Terminato</string>
+    <string name="scanner_pronto_text">Pronto per lo Scan della Sicurezza</string>
+    <string name="security_guide_description">Apprendi semplici abitudini e strategie di sicurezza su Android
+        per proteggere la tua esperienza digitale.</string>
+    <string name="security_level_critica">CRITICO</string>
+    <string name="security_level_debole">DEBOLE</string>
+    <string name="security_level_forte">FORTE</string>
+    <string name="security_level_moderata">MODERATA</string>
+    <string name="sottotitolo_principale_testo">Assistente di Sicurezza Digitale</string>
+    <string name="stato_sicurezza">Stato di Sicurezza</string>
+    <string name="stato_sicurezza_buono">Buono</string>
+    <string name="stato_sicurezza_critico">Critico</string>
+    <string name="stato_sicurezza_warning">Warning</string>
+    <string name="strumenti_sicurezza_AegisNet_text">Strumenti di Sicurezza</string>
+    <string name="url_checker">Controllo Sicurezza URL/Link</string>
+    <string name="url_checker_descrizione">
+        Analizza un URL mediante semplici controlli. Nessuna richiesta di rete viene effettuata.</string>
+    <string name="url_checks_label">Controlli</string>
+    <string name="url_editText_vuota">Inserisci un URL prima di iniziare il controllo</string>
+    <string name="url_input_suggerito">https://example.com</string>
+    <string name="url_input_testo">URL</string>
+    <string name="url_punteggio">Punteggio: %1$d/100</string>
+    <string name="url_rischio_alto">ALTA</string>
+    <string name="url_rischio_basso">BASSA</string>
+    <string name="url_rischio_critico">CRITICA</string>
+    <string name="url_rischio_moderato">MODERATA</string>
+    <string name="url_warnings">Warnings: %1$d</string>
+    <string name="warnings">Warnings: </string>
+    <string name="widget_btn_apri_applicazione">Apri AEGISNET</string>
+    <string name="widget_description">Punteggio e Stato di Sicurezza di AegisNet</string>
+    <string name="widget_last_scan">Ultima scansione di Password: %1$s</string>
+    <string name="widget_not_scanned">Non Scansionato</string>
+    <string name="widget_punteggio_sicurezza">Punteggio di Sicurezza</string>
+    <string name="widget_score">%1$d / 100</string>
+    <string name="widget_titolo">AEGISNET</string>
+    <style name="Base.Theme.AegisNet" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.AegisNet" parent="Base.Theme.AegisNet"/>
+</resources>
