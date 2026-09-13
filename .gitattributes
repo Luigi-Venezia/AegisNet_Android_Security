@@ -1,0 +1,11 @@
+#Automatic line ending handling for all files
+
+* text=auto
+
+# Auto-detect linguist-language
+
+# Kotlin
+*.kt linguist-language=Kotlin linguist-detectable=true
+
+# XML
+*.xml linguist-language=XML linguist-detectable=true
