@@ -1,4 +1,4 @@
-# AegisNet - Android Security Application (Progetto d'Esame)
+## AegisNet - Android Security Application (Progetto d'Esame)
 
 Studenti Realizzatori del progetto:
 
