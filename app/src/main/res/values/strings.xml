@@ -1,196 +1,126 @@
 <resources>
-
     <string name="app_name">AegisNet</string>
+    <string name="sottotitolo_principale_testo">Assistente di Sicurezza Digitale</string>
+    <string name="descrizione_app_testo">Proteggi la tua esperienza digitale con controlli pratici e semplici</string>
+    <string name="punteggio_sicurezza_text">Punteggio di Sicurezza</string>
 
-    <string name="main_subtitle">
-        Digital Security Assistant
-    </string>
+    <string name="stato_sicurezza">Stato di Sicurezza</string>
 
-    <string name="main_description">
-        Protect your digital life with simple and practical security checks.
-    </string>
+    <string name="stato_sicurezza_buono">Buono</string>
 
-    <string name="security_score_label">
-        Security Score</string>
+    <string name="stato_sicurezza_warning">Warning</string>
 
-    <string name="security_status_label">
-        Security Status
-    </string>
+    <string name="stato_sicurezza_critico">Critico</string>
 
-    <string name="security_status_good">
-        Good
-    </string>
-
-    <string name="security_status_warning">
-        Warning
-    </string>
-
-    <string name="security_status_critical">
-        Critical
-    </string>
-
-    <string name="passed_checks">Passed checks:&#160;</string>
+    <string name="controlli_superati_text">Controlli superati:&#160;</string>
 
     <string name="warnings">Warnings:&#160;</string>
+    <string name="esegui_scan_sicurezza_text">Esegui lo scan della Sicurezza</string>
 
-    <string name="run_security_scan">
-        Run Security Scan
+    <string name="scanner_pronto_text">Pronto per lo Scan della Sicurezza</string>
+
+    <string name="scan_completo">Scan della Sicurezza Terminato</string>
+
+    <string name="strumenti_sicurezza_AegisNet_text">Strumenti di Sicurezza</string>
+
+    <string name="password_checker">Controllo Sicurezza Password</string>
+
+    <string name="url_checker">Controllo Sicurezza URL/Link</string>
+
+    <string name="password_checker_titolo">Analizza Sicurezza Password</string>
+
+    <string name="password_checker_descrizione">Valuta la robustezza delle Password tramite semplici controlli di sicurezza.
     </string>
 
-    <string name="scan_ready">
-        Ready for a security scan
-    </string>
+    <string name="password_input_text">Password</string>
 
-    <string name="scan_completed">
-        Dashboard security scan completed
-    </string>
+    <string name="password_input_sugg">Inserisci una Password da analizzare</string>
+    <string name="btn_analizza_password_text">Analizza Password</string>
+    <string name="password_vuota_error">Inserisci una Password prima di iniziare l\'analisi.</string>
 
-    <string name="security_tools_title">
-        Security Tools
-    </string>
+    <string name="password_punteggio_text">Punteggio</string>
 
-    <string name="password_checker">
-        Password Security Checker
-    </string>
+    <string name="password_punteggio">%1$d/100</string>
 
-    <string name="url_checker">
-        URL / Link Security Checker
-    </string>
+    <string name="security_level_forte">FORTE</string>
 
-    <string name="password_checker_title">
-        Password Security Checker
-    </string>
+    <string name="security_level_moderata">MODERATA</string>
 
-    <string name="password_checker_description">
-        Evaluate password robustness locally using simple security heuristics.
-    </string>
+    <string name="security_level_debole">DEBOLE</string>
 
-    <string name="password_input_label">
-        Password
-    </string>
+    <string name="security_level_critica">CRITICO</string>
 
-    <string name="password_input_hint">
-        Enter a password to analyze
-    </string>
-
-    <string name="analyze_password">
-        Analyze Password
-    </string>
-
-    <string name="password_empty_error">
-        Enter a password before starting the analysis.
-    </string>
-
-    <string name="password_score_label">
-        Score
-    </string>
-
-    <string name="password_score">
-        %1$d/100
-    </string>
-
-    <string name="security_level_strong">
-        STRONG
-    </string>
-
-    <string name="security_level_moderate">
-        MODERATE
-    </string>
-
-    <string name="security_level_weak">
-        WEAK
-    </string>
-
-    <string name="security_level_critical">
-        CRITICAL
-    </string>
-
-    <string name="password_checks_label">
-        Security Checks
-    </string>
-
+    <string name="password_controlli_sicurezza_text">Controlli di Sicurezza</string>
     <string name="password_warnings">
         Warnings: %1$d
     </string>
 
-    <string name="security_guide">
-        Security Guide
-    </string>
+    <string name="guida_sicurezza">Guida per la Sicurezza</string>
 
-    <string name="feature_placeholder_description">
-        This feature will be implemented in the next project phase.
-    </string>
+    <string name="btn_ritorna_DashBoard">Ritorna alla DashBoard</string>
 
-    <string name="back_to_dashboard">
-        Back to Dashboard
-    </string>
 
-    <string name="password_checker_placeholder">
-        Password analysis will be added here.
-    </string>
 
-    <string name="url_checker_placeholder">
-        URL and link analysis will be added here.
-    </string>
 
-    <string name="url_empty_error">
-        Enter a URL before starting the analysis.
-    </string>
+    <string name="url_editText_vuota">Inserisci un URL prima di iniziare il controllo</string>
 
-    <string name="url_score">Score: %1$d/100</string>
+    <string name="url_punteggio">Punteggio: %1$d/100</string>
 
-    <string name="url_risk_low">LOW</string>
+    <string name="url_rischio_basso">BASSA</string>
 
-    <string name="url_risk_moderate">MODERATE</string>
+    <string name="url_rischio_moderato">MODERATA</string>
 
-    <string name="url_risk_high">HIGH</string>
+    <string name="url_rischio_alto">ALTA</string>
 
-    <string name="url_risk_critical">CRITICAL</string>
+    <string name="url_rischio_critico">CRITICA</string>
 
-    <string name="url_checks_label">Checks</string>
-
-    <string name="url_warnings">
-        Warnings: %1$d</string>
+    <string name="url_checks_label">Controlli</string>
+    <string name="url_warnings">Warnings: %1$d</string>
 
     <string name="https_trust_note">
-        HTTPS means the connection is encrypted. It does not prove that the website is trustworthy; phishing sites can also use HTTPS.</string>
+        HTTPS dimostra che la connessione è cifrata non che il sito è sicuro, anche i siti di phishing possono usare
+        HTTPS come protocollo di comunicazione.</string>
 
-    <string name="url_checker_description">
-        Analyze a URL locally using simple, transparent heuristics. No network request is made.</string>
+    <string name="url_checker_descrizione">
+        Analizza un URL mediante semplici controlli. Nessuna richiesta di rete viene effettuata.</string>
 
-    <string name="url_input_label">URL</string>
+    <string name="url_input_testo">URL</string>
 
-    <string name="url_input_hint">https://example.com</string>
+    <string name="url_input_suggerito">https://example.com</string>
 
-    <string name="analyze_url">Analyze URL</string>
 
-    <string name="security_guide_description">
-    Learn simple habits and Android security concepts to protect your digital life.</string>
+    <string name="btn_analizza_url">Analizza URL</string>
 
-    <string name="online_url_check">
-    Run Online Security Check</string>
+    <string name="security_guide_description">Apprendi semplici abitudini e strategie di sicurezza su Android
+        per proteggere la tua esperienza digitale.</string>
 
-    <string name="online_check_loading">
-    Contacting the remote security service…</string>
+    <string name="btn_controllo_online_name">Esegui il controllo di sicurezza Online</string>
 
-    <string name="online_check_success">
-    Remote HTTP Security Check\n
-    Grade: %1$s\n
-    Score: %2$d\n
-    Tests passed: %3$d/%4$d\n
-    HTTP status: %5$d</string>
+    <string name="online_check_loading">Contattando il servizio di sicurezza remoto</string>
+
+    <string name="controllo_online_risultati">
+    Controllo di sicurezza HTTP remoto\n
+    Grado: %1$s\n
+    Punteggio: %2$d\n
+    Controlli passati: %3$d/%4$d\n
+    Stato HTTP: %5$d</string>
 
     <string name="online_check_note">
-    This secondary check uses Mozilla HTTP Observatory.
-    It evaluates HTTP security configuration; it does not
-    prove that a website is benign or trustworthy.</string>
+    Questo controllo secondario utilizza Mozilla HTTP Observatory.
+        Valuta la configurazione della sicurezza HTTP;
+        non dimostra che un sito web sia innocuo o affidabile.</string>
 
-    <string name="widget_title">AEGISNET</string>
-    <string name="widget_score_label">Security Score</string>
+
+
+    <string name="widget_titolo">AEGISNET</string>
+
+    <string name="widget_punteggio_sicurezza">Punteggio di Sicurezza</string>
     <string name="widget_score">%1$d / 100</string>
-    <string name="widget_last_scan">Last Password Scan: %1$s</string>
-    <string name="widget_not_scanned">Not scanned</string>
-    <string name="widget_open_aegisnet">OPEN AEGISNET</string>
-    <string name="widget_description">AegisNet security score and status</string>
+    <string name="widget_last_scan">Ultima scansione di Password: %1$s</string>
+    <string name="widget_not_scanned">Non Scansionato</string>
+    <string name="widget_btn_apri_applicazione">Apri AEGISNET</string>
+    <string name="widget_description">Punteggio e Stato di Sicurezza di AegisNet</string>
+
+    <string name="guida_sicurezza_text">Guida alla Sicurezza</string>
 
 </resources>

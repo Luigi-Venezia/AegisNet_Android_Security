@@ -11,7 +11,7 @@
         android:id="@+id/tvWidgetTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/widget_title"
+        android:text="@string/widget_titolo"
         android:textColor="@color/aegis_green"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/widget_score_label"
+        android:text="@string/widget_punteggio_sicurezza"
         android:textColor="@color/aegis_gray"
         android:textSize="12sp" />
 
@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/widget_open_aegisnet"
+        android:text="@string/widget_btn_apri_applicazione"
         android:textSize="12sp" />
 
 </LinearLayout>

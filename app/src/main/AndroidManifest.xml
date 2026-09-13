@@ -16,9 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AegisNet"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:usesCleartextTraffic="false"> <!--Vieta il traffico non cifrato di tipo HTTP-->
-
-
+        android:usesCleartextTraffic="false">
 
         <activity
             android:name=".MainActivity"

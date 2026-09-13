@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply true
 
 }
-
 android {
     namespace = "com.example.aegisnet"
     compileSdk {
@@ -11,9 +10,8 @@ android {
             minorApiLevel = 1
         }
     }
-
     buildFeatures{
-        viewBinding= true //Abilita il ViewBinding e le classi verranno automaticamente generate
+        viewBinding=true
     }
 
     defaultConfig {
@@ -22,14 +20,13 @@ android {
         targetSdk= 37
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isDebuggable= false //Disabilita il collegamento di un debugger al codice release
-            isMinifyEnabled = false //Disabilita l'utilizzo di R8 Pro Guard per non offuscare il codice
+            isDebuggable= false
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

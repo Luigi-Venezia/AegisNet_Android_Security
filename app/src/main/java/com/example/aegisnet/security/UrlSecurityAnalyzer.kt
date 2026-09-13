@@ -6,73 +6,49 @@ import com.example.aegisnet.model.SecurityLevel
 import com.example.aegisnet.model.SecurityReport
 import java.net.URI
 
- /* Analizza l'URL localmente senza effettuare connessioni.
-    Il risultato è solo indicativo e non garantisce che il sito sia sicuro */
+/* Ho fatto un analisi sull URL in locale, senza connessioni. */
 class UrlSecurityAnalyzer {
+    companion object {
+        private const val HTTP_SCHEME = "http"
+        private const val HTTPS_SCHEME = "https"
+    }
 
-     companion object {
-         private const val HTTP_SCHEME= "http"
-         private const val HTTPS_SCHEME= "https"
-     }
-
-
-     //Analizza l'URL e restituisce un report riutilizzando i model comuni
     fun analyze(input: String): SecurityReport {
-
-        val value = input.trim() //Il valore viene letto eliminando eventuali spazi vuoti inutili
-        if (value.isEmpty()) {   //Viene controllato se la casella è vuota
-            return invalidReport("Input is empty.")
+        val value = input.trim()
+        if (value.isBlank()) {
+            return invalidReport("Inserisci un URL")
         }
-
         val uri = try {
             URI(value)
         } catch (_: Exception) {
-            return invalidReport("The URL is malformed.")
+            return invalidReport("L'URL non è valido")
+        }
+        val scheme = uri.scheme?.lowercase()
+        val hostname = uri.host
+
+        if (scheme != HTTP_SCHEME && scheme != HTTPS_SCHEME) {
+            return invalidReport("Sono supportati soltanto URL Http e Https");
+        }
+        if (hostname == null || !isValidHostname(hostname)) {
+            return invalidReport("L'url non contiene un host name valido");
         }
 
-        val scheme= uri.scheme?.lowercase()
-        val hostname= uri.host
+        val normalizedScheme = scheme ?: return invalidReport("Schema non valido.")
+        val normalizedHostname = hostname ?: return invalidReport("Hostname non valido.")
 
-        val validSchema= scheme == HTTP_SCHEME || scheme == HTTPS_SCHEME
-        val validHostname= hostname != null && isValidHostname(hostname)
+        val isHttps = normalizedScheme == HTTPS_SCHEME
+        val isHttp = normalizedScheme == HTTP_SCHEME
 
-        //Si verifica se entrambi i valori sono true, in questo caso l'url è valido
-        val validUrl= validSchema && validHostname
-
-        if (!validSchema || !validHostname) {
-            return invalidReport(
-                when {
-                    !validSchema ->
-                        "Only HTTP and HTTPS URLs are supported."
-
-                    !validHostname ->
-                        "The URL does not contain a valid hostname."
-
-                    else ->
-                        "The URL is not valid."
-                }
-            )
-        }
-
-        //Dopo il controllo possiamo usare questi valori senza null
-        val safeScheme= scheme!!
-        val safeHostname= hostname!!
-
-
-        val isHttps= safeScheme == HTTPS_SCHEME
-        val isHttp= safeScheme == HTTP_SCHEME
-
-        val isIpAddress= hostnameIsIp(safeHostname)
-        val hasNonStandardPort= hasNonStandardPort(uri,safeScheme)
-        val hasSuspiciousCharacteristics= hasSuspiciousCharacteristics(uri,safeHostname)
+        val isIpAddress = hostnameIsIp(normalizedHostname)
+        val hasNonStandardPort = hasNonStandardPort(uri, normalizedScheme)
+        val hasSuspiciousCharacteristics = hasSuspiciousCharacteristics(uri, normalizedHostname)
 
         val checks = listOf(
-
             SecurityCheck(
                 name = "Valid URL",
                 status = SecurityCheckStatus.PASSED,
                 description =
-                    "The URL has a supported scheme and a valid hostname."
+                    "L'URL utilizza uno schema supportato e contiene un hostname valido."
             ),
 
             SecurityCheck(
@@ -84,9 +60,9 @@ class UrlSecurityAnalyzer {
                         SecurityCheckStatus.WARNING,
                 description =
                     if (isHttps) {
-                        "HTTPS encrypts the connection, but it does not prove that the site is trustworthy."
+                        "HTTPS cifra la connessione, però non è detto che sia affidabile."
                     } else {
-                        "The URL does not use HTTPS, so the connection is not protected by HTTPS encryption."
+                        "HTTPS cifra la connessione, ma non garantisce che il sito sia affidabile."
                     }
             ),
 
@@ -99,16 +75,16 @@ class UrlSecurityAnalyzer {
                         SecurityCheckStatus.PASSED,
                 description =
                     if (isHttp) {
-                        "HTTP is unencrypted and should be treated as a warning."
+                        "HTTP non cifra. Elemento a rischio"
                     } else {
-                        "The URL does not use plain HTTP."
+                        "L'URL non HTTP in maniera chiara"
                     }
             ),
 
             SecurityCheck(
                 name = "Hostname",
                 status = SecurityCheckStatus.PASSED,
-                description = "Hostname: $safeHostname"
+                description = "Hostname: $hostname"
             ),
 
             SecurityCheck(
@@ -120,14 +96,14 @@ class UrlSecurityAnalyzer {
                         SecurityCheckStatus.PASSED,
                 description =
                     if (isIpAddress) {
-                        "The hostname is an IP address rather than a conventional domain name."
+                        "L'hostname è un indirizzo IP anziché un normale nome di dominio."
                     } else {
-                        "The hostname is represented by a domain name."
+                        "L'hostname è rappresentato da un nome di dominio"
                     }
             ),
 
             SecurityCheck(
-                name = "Non-standard Port",
+                name = "Porta Non standard",
                 status =
                     if (hasNonStandardPort)
                         SecurityCheckStatus.WARNING
@@ -135,14 +111,14 @@ class UrlSecurityAnalyzer {
                         SecurityCheckStatus.PASSED,
                 description =
                     if (hasNonStandardPort) {
-                        "The URL uses a non-standard port: ${uri.port}."
+                        "L'URL usa una porta non standard: ${uri.port}."
                     } else {
-                        "The URL uses the standard port for its scheme or no explicit port."
+                        "The URL usa uno schema e contiene il giusto hostname"
                     }
             ),
 
             SecurityCheck(
-                name = "Suspicious Characteristics",
+                name = "Caratteristiche sospette",
                 status =
                     if (hasSuspiciousCharacteristics)
                         SecurityCheckStatus.WARNING
@@ -151,7 +127,7 @@ class UrlSecurityAnalyzer {
                 description =
                     suspiciousDescription(
                         uri,
-                        safeHostname,
+                        normalizedHostname,
                         hasSuspiciousCharacteristics
                     )
             )
@@ -182,8 +158,8 @@ class UrlSecurityAnalyzer {
         )
     }
 
-     /* Il punteggio parte da 100 e diminuisce
-        quando vengono trovati elementi sospetti */
+    /* Il punteggio parte da 100 e diminuisce
+       quando vengono trovati elementi sospetti */
     private fun calculateScore(
         isHttps: Boolean,
         isHttp: Boolean,
@@ -191,25 +167,19 @@ class UrlSecurityAnalyzer {
         hasNonStandardPort: Boolean,
         hasSuspiciousCharacteristics: Boolean
     ): Int {
-
         var score = 100
-
         if (!isHttps) {
             score -= 20
         }
-
         if (isHttp) {
             score -= 10
         }
-
         if (isIpAddress) {
             score -= 20
         }
-
         if (hasNonStandardPort) {
             score -= 15
         }
-
         if (hasSuspiciousCharacteristics) {
             score -= 25
         }
@@ -217,42 +187,25 @@ class UrlSecurityAnalyzer {
         return score.coerceIn(0, 100)
     }
 
-    /* Riutilizza SecurityLevel già presente nel progetto
-       La UI del URL Checker traduce questi livelli nei quattro livelli
-       richiesti: LOW, MODERATE, HIGH e CRITICAL */
-    private fun scoreToSecurityLevel(
-        score: Int
-    ): SecurityLevel =
+    private fun scoreToSecurityLevel(score: Int): SecurityLevel =
         when (score) {
-
-            in 90..100 ->
-                SecurityLevel.STRONG
-
-            in 70..89 ->
-                SecurityLevel.MODERATE
-
-            in 40..69 ->
-                SecurityLevel.WEAK
-
-            else ->
-                SecurityLevel.CRITICAL
+            in 90..100 -> SecurityLevel.STRONG
+            in 70..89 -> SecurityLevel.MODERATE
+            in 40..69 -> SecurityLevel.WEAK
+            else -> SecurityLevel.CRITICAL
         }
 
-    /* Report restituito quando l'URL non è analizzabile.
-       Un valore non valido non viene trattato come un sito sicuro:
-       l'analisi viene interrotta e il controllo Valid URL fallisce */
+    /* Se l'input non è valido, dà che il report è fallito con score pari a 0 */
     private fun invalidReport(
         reason: String
     ): SecurityReport {
-
-        val checks =
-            listOf(
-                SecurityCheck(
-                    name = "Valid URL",
-                    status = SecurityCheckStatus.FAILED,
-                    description = reason
-                )
+        val checks = listOf(
+            SecurityCheck(
+                name = "URL valido",
+                status = SecurityCheckStatus.FAILED,
+                description = reason
             )
+        )
 
         return SecurityReport(
             score = 0,
@@ -263,60 +216,35 @@ class UrlSecurityAnalyzer {
         )
     }
 
-    /* HTTP utilizza normalmente la porta 80.
-       HTTPS utilizza normalmente la porta 443.
-       Una porta esplicita diversa da quella standard viene segnalata,
-       ma non viene considerata automaticamente malevola */
+    /*
+       HTTP utilizza la porta 80 mentre HTTPS 443
+       se la porta è diversa da quella standard viene segnalata(perciò)
+       però non viene considerata malevola
+       */
     private fun hasNonStandardPort(
         uri: URI,
         scheme: String
     ): Boolean {
-
         if (uri.port == -1) {
             return false
         }
-
         return when (scheme) {
-
-            HTTPS_SCHEME ->
-                uri.port != 443
-
-            HTTP_SCHEME ->
-                uri.port != 80
-
-            else ->
-                true
+            HTTPS_SCHEME -> uri.port != 443
+            HTTP_SCHEME -> uri.port != 80
+            else -> true
         }
     }
 
-    /* Controlli limitati a caratteristiche evidenti:
-      - user-info inserito nell'authority
-      - hostname
-      - numero elevato di sottodomini
-       Non vengono utilizzati blacklist, database esterni o threat
-       intelligence */
+    //Abbiamo fatto qualche controllo tipo controlli se la blacklist viene utilizzata
     private fun hasSuspiciousCharacteristics(
         uri: URI,
         hostname: String
     ): Boolean {
 
-        val labels =
-            hostname
-                .split('.')
-                .filter {
-                    it.isNotEmpty()
-                }
-
-        val hasUserInfo =
-            !uri.userInfo.isNullOrBlank()
-
-        val hasPunycode =
-            labels.any {
-                it.startsWith("xn--")
-            }
-
-        val hasManySubdomains =
-            labels.size >= 5
+        val labels = hostname.split('.').filter { it.isNotEmpty() }
+        val hasUserInfo = !uri.userInfo.isNullOrBlank()
+        val hasPunycode = labels.any { it.startsWith("xn--") }
+        val hasManySubdomains = labels.size >= 5
 
         return hasUserInfo ||
                 hasPunycode ||
@@ -330,126 +258,71 @@ class UrlSecurityAnalyzer {
     ): String {
 
         if (!suspicious) {
-            return "No evident suspicious characteristic was detected by the local heuristic."
+            return "No rilevamento caratteristiche sospette."
         }
-
+        val hostnameParts = hostname.split(".").filter{it.isNotEmpty()}
         val reasons =
             mutableListOf<String>()
-
         if (!uri.userInfo.isNullOrBlank()) {
-            reasons += "embedded user information"
+            reasons += "informazioni utente incorporate nell'URL"
+        }
+        if (hostnameParts.any { it.startsWith("xn--") }) {
+            reasons += "hostname codificato in punycode"
         }
 
-        if (
-            hostname
-                .split('.')
-                .any {
-                    it.startsWith("xn--")
-                }
-        ) {
-            reasons += "punycode hostname"
-        }
-
-        if (
-            hostname
-                .split('.')
-                .count {
-                    it.isNotEmpty()
-                } >= 5
-        ) {
+        if (hostnameParts.size >= 5) {
             reasons += "many subdomains"
         }
-
-        return "Potentially suspicious characteristic: " +
-                reasons.joinToString(", ") +
-                "."
+        return "Possibili caratteristiche sospette: ${reasons.joinToString(", ")}."
     }
 
     /* Controllo sintattico del hostname
        Sono accettati hostname DNS convenzionali e indirizzi IP */
-    private fun isValidHostname(
-        hostname: String
-    ): Boolean {
-
-        val value =
-            hostname.trimEnd('.')
-
+    private fun isValidHostname(hostname: String): Boolean {
+        val normalizedHostname = hostname.trimEnd('.')
         if (
-            value.isEmpty() ||
-            value.length > 253
+            normalizedHostname.isEmpty() ||
+            normalizedHostname.length > 253
         ) {
             return false
         }
-
-        if (hostnameIsIp(value)) {
+        if (hostnameIsIp(normalizedHostname)) {
             return true
         }
-
-        val labels =
-            value.split('.')
-
+        val labels = normalizedHostname.split('.')
         return labels.all { label ->
-
             label.isNotEmpty() &&
                     label.length <= 63 &&
                     label.firstOrNull()?.isLetterOrDigit() == true &&
                     label.lastOrNull()?.isLetterOrDigit() == true &&
-                    label.all {
-                        it.isLetterOrDigit() ||
-                                it == '-'
-                    }
+                    label.all { it.isLetterOrDigit() || it == '-' }
         }
     }
 
-    /* Riconoscimento sintattico locale di IPv4/IPv6
-       Non viene utilizzato DNS perché il checker
-       deve funzionare completamente offline */
+    // Riconoscimento locale di IPv4 e IPv6, senza richieste DNS.
     private fun hostnameIsIp(
         hostname: String
     ): Boolean {
-
-        val value =
-            hostname
-                .removePrefix("[")
-                .removeSuffix("]")
-
-        val ipv4Parts =
-            value.split('.')
-
-        if (
-            ipv4Parts.size == 4 &&
+        val value = hostname.removePrefix("[").removeSuffix("]")
+        val ipv4Parts = value.split('.')
+        if (ipv4Parts.size == 4 &&
             ipv4Parts.all { part ->
-
-                part
-                    .toIntOrNull()
-                    ?.let {
-                            number ->
-                        number in 0..255
-                    } == true
+                part.toIntOrNull()?.let { number -> number in 0..255 } == true
             }
         ) {
             return true
         }
-
         if (!value.contains(':')) {
             return false
         }
-
-        val hextets =
-            value.split(':')
-
+        val hextets = value.split(':')
         if (hextets.size > 8) {
             return false
         }
-
         var emptyGroups = 0
-
         for (hextet in hextets) {
-
             if (hextet.isEmpty()) {
-
                 emptyGroups++
-
             } else if (
                 hextet.length > 4 ||
                 hextet.any {
@@ -460,48 +333,24 @@ class UrlSecurityAnalyzer {
                 return false
             }
         }
-
         return emptyGroups <= 2
     }
 
-    /* Estrae l'hostname di un URL già valido secondo
-       le regole del checker
-       Questo metodo viene riutilizzato dal networking
-       per inviare al servizio remoto soltanto l'hostname
-       validato, non l'intero testo dell'utente */
-    fun extractHostname(
-        input: String
-    ): String? {
-
-        val value= input.trim()
-
-        if (value.isEmpty()) {
+    // Restituisce soltanto l'hostname validato per le richieste di rete.
+    fun extractHostname(input: String): String? {
+        val value = input.trim()
+        if (value.isBlank()) {
             return null
         }
-
-        val uri =
-            try {
-                URI(value)
-            } catch (_: Exception) {
-                return null
-            }
-
-        val scheme =
-            uri.scheme?.lowercase()
-
-        val hostname =
-            uri.host
-
-        if (
-            scheme != HTTP_SCHEME &&
-            scheme != HTTPS_SCHEME
-        ) {
+        val uri = try {
+            URI(value)
+        } catch (_: Exception) {
             return null
         }
-
-        return hostname
-            ?.takeIf {
-                isValidHostname(it)
-            }
+        val scheme = uri.scheme?.lowercase()
+        if (scheme != HTTP_SCHEME && scheme != HTTPS_SCHEME) {
+            return null
+        }
+        return uri.host?.takeIf { isValidHostname(it) }
     }
 }

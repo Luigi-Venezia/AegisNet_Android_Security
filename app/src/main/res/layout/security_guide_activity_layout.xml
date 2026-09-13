@@ -16,9 +16,9 @@
             android:id="@+id/tvGuideTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:text="@string/security_guide"
+            android:layout_marginTop="20dp"
+            android:text="@string/guida_sicurezza"
             android:textColor="@color/aegis_green"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="24dp"
-            android:text="@string/back_to_dashboard"
+            android:text="@string/btn_ritorna_DashBoard"
             android:textSize="18sp" />
 
     </LinearLayout>
